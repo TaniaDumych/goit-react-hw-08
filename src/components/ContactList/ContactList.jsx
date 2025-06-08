@@ -1,20 +1,28 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
-import { selectFilteredContacts } from '../../redux/contactsSlice';
+import { useSelector } from 'react-redux';
+import Contact from '../Contact/Contact';
+import css from './ContactList.module.css';
+
+import { selectFilteredContacts } from '../../redux/contacts/selectors';
 
 const ContactList = () => {
-  const dispatch = useDispatch();
   const contacts = useSelector(selectFilteredContacts);
 
   return (
-    <ul className="contact-list">
-      {contacts.map(({ id, name, phone }) => (
-        <li key={id} className="contact-item">
-          {name}: {phone}
-          <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <section >
+      <div className="container">
+        {contacts.length > 0 ? (
+          <ul className={css.contactList}> 
+            {contacts.map(contact => (
+              <li key={contact.id} >
+                <Contact contact={contact} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+            <p className={css.noFound}>No contacts found</p>
+        )}
+      </div>
+    </section>
   );
 };
 

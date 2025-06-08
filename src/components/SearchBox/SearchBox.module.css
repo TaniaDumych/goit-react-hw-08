@@ -1,0 +1,10 @@
+.container{
+font-size: 18px;
+padding: 5px 20px;
+}
+.search {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+ font-size: 18px;
+ }

@@ -1,24 +1,34 @@
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
-import { IoPerson } from "react-icons/io5";
-import { ImPhone } from "react-icons/im";
+import { FaUser, FaPhoneAlt } from 'react-icons/fa';
+import { deleteContact } from '../../redux/contacts/operations';
+import css from './Contact.module.css';
 
-const Contact = ({ name, number, id, }) => {
+export default function Contact({ contact }) {
   const dispatch = useDispatch();
-  const handleDelete = () => {
-    dispatch(deleteContact(id));
+
+  const handleDeleteClick = () => {
+    dispatch(deleteContact(contact.id));
   };
 
   return (
     <div>
-      <div >
-        <h3><IoPerson /> {name}</h3>
-        <p><ImPhone /> {number}</p>
+      <div>
+        <p>
+          <FaUser size={20} className={css.icon} />
+          {contact.name}
+        </p>
+        <p>
+          <FaPhoneAlt size={20} className={css.icon}/>
+          {contact.number}
+        </p>
       </div>
-      <button onClick={handleDelete} type="button">
-        Delete
-      </button>
+      <div>
+        {}
+        <button  className={css.editButton} type="button">Edit</button>
+        <button   className={css.deleteButton} onClick={handleDeleteClick} type="button">
+          Delete
+        </button>
+      </div>
     </div>
-  );};
-
-export default Contact;
+  );
+}

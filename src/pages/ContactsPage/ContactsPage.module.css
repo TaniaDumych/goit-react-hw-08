@@ -1,0 +1,27 @@
+.container {
+    padding: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteBtn {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
