@@ -1,7 +1,8 @@
 import { PulseLoader } from 'react-spinners';
 
+
 const Loader = ({ loading }) => {
-  return (
+  return  (
     <PulseLoader
       color="black"
       cssOverride={{
