@@ -17,7 +17,7 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
     const res = await axios.post('/users/signup', credentials);
     const token = res.data.token;
 
-    localStorage.setItem('token', token);
+
 
     setAuthHeader(token);
     return res.data;
@@ -32,7 +32,7 @@ export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI
     const token = res.data.token;
 
    
-    localStorage.setItem('token', token);
+    
 
     setAuthHeader(token);
     return res.data;
@@ -48,7 +48,7 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     clearAuthHeader();
 
   
-    localStorage.removeItem('token');
+   
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
   }

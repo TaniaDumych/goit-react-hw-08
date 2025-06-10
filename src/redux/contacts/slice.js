@@ -21,8 +21,8 @@ const notifyEdit = () => toast.success('Contact successfully edited');
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
-    items: [],
-    loading: false,
+  items: [],
+  isLoading: false,
     error: null,
     
   },
